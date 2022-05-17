@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>Yet Another Online Code Editor</title>
+        <link rel="stylesheet" href="yaoce.css" type="text/css">
+        <script src="yaoce.js"></script>
+        <script src="ide_lib/ace.js"></script>
+        <script src="ide_lib/ext-options.js"></script>
+        <!--Bright Theme-->
+        <script src="ide_lib/theme-chrome.js"></script>
+        <script src="ide_lib/theme-crimson_editor.js"></script>
+        <script src="ide_lib/theme-eclipse.js"></script>
+        <!--Dark Theme-->
+        <script src="ide_lib/theme-monokai.js"></script>
+        <script src="ide_lib/theme-ambiance.js"></script>
+        <script src="ide_lib/theme-chaos.js"></script>
+
+    </head>
+    <body>
+        <div>
+            <ul class="title">
+                <li class="name">Yet Another Online Code Editor</li>
+                <li id="select">Select Theme
+                    <select name="themes" id="themes" onchange="changeTheme()">
+                        <optgroup label="Dark"></optgroup>
+                            <option value="monokai">monokai</option>
+                            <option value="ambiance">ambiance</option>
+                            <option value="chaos">chaos</option>
+                        </optgroup>
+                        <optgroup label="Bright"></optgroup>
+                            <option value="chrome">chrome</option>
+                            <option value="crimson_editor">crimson_editor</option>
+                            <option value="eclipse">eclipse</option>
+                        </optgroup>
+                    </select></li>
+                <li>Select Language
+                    <select name="language" id="language" onchange="changeLanguage()">
+                        <option value="c_cpp">C</option>
+                        <option value="c_cpp">C++</option>
+                        <option value="java">Java</option>
+                        <option value="python">Python</option>
+                        <option value="javascript">JavaScript</option>
+                        <option value="ruby">Ruby</option>
+                    </select></li>
+                    <li>
+                        <button>Run</button>
+                    </li>
+            </ul>
+        </div>
+        <div class="code_editor" id="code_editor">
+
+        </div>
+        <div class="input">
+            <input type="text" placeholder="Enter User Input Here">
+        </div>
+        <div class="output">
+
+        </div>
+        <footer align="center">
+            Built With <a href="https://ace.c9.io/" target="_blank">Ace</a> ||
+             Powered By <a href="https://github.com/engineer-man/piston" target="_blank">Piston</a>
+        </footer>
+    </body>
+</html>
