@@ -25,6 +25,14 @@ function changeLanguage(){
     code_editor.session.setMode("ace/mode/"+language);   
 }
 
+function displayOutput(){
+    let code = code_editor.getSession().getValue();
+    let args = document.getElementById("args").value;
+
+    document.getElementById("output_textarea").textContent=code+"\n"+args;
+    
+}
+
 //Codex Repo
 //https://github.com/Jaagrav/CodeX
 

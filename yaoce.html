@@ -32,7 +32,7 @@
                             <option value="eclipse">eclipse</option>
                         </optgroup>
                     </select></li>
-                <li>Select Language
+                <li id="select">Select Language
                     <select name="language" id="language" onchange="changeLanguage()">
                         <option value="c_cpp">C</option>
                         <option value="c_cpp">C++</option>
@@ -41,19 +41,18 @@
                         <option value="javascript">JavaScript</option>
                         <option value="ruby">Ruby</option>
                     </select></li>
-                    <li>
-                        <button>Run</button>
-                    </li>
             </ul>
         </div>
         <div class="code_editor" id="code_editor">
-
+            <!--Code editor-->
         </div>
         <div class="input">
-            <input type="text" placeholder="Enter User Input Here">
+                <input type="text" id="args" placeholder="cmd line arguments here">
+                <button type="submit" onclick="displayOutput()">Run</button>
         </div>
         <div class="output">
-
+            Output<br>
+            <textarea name="output_textarea" id="output_textarea" rows="10" readonly>Output will be displayed here</textarea>
         </div>
         <footer align="center">
             Built With <a href="https://ace.c9.io/" target="_blank">Ace</a> ||

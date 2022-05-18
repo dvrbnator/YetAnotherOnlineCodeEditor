@@ -7,6 +7,11 @@ body{
     display: inline;
 }
 
+#select{
+    margin-left: 20px;
+    font-weight: bold;
+}
+
 .name{
     font-size: 20px;
     font-weight: bolder;
@@ -15,19 +20,37 @@ body{
 .code_editor{
     height: 450px;
     width: auto;
-}
-
-.userinput{
-    margin:2px 2px 2px 0px;
+    min-height: 100px;
+    max-height: 450px;
+    overflow: auto;
+    resize: vertical;
 }
 
 .input input{
-    width:100%;
-    margin: 2px 0px 2px 0px;
+    width:95%;
+    margin: 1px 0px 3px 0px;
+}
+
+.input button{
+    margin: 1px 0px 3px 0px;
+    width: 70px;
+    cursor: pointer;
+    background-color: rgb(255, 196, 0);
 }
 
 .output{
+    margin-top: 0px;
     height: 195px;
     width: auto;
     background: black;
+    color: white;
+}
+
+.output textarea{
+    margin: 0px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    resize: none;
+    border: none;
 }
