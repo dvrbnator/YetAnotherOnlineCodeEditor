@@ -2,6 +2,7 @@ let code_editor;
 
 let default_theme = "monokai";
 let default_language = "c_cpp";
+let default_fontsize = "14px";
 
 // User Selected Language
 // and it's correspoding Version of the Compilor
@@ -12,11 +13,12 @@ let language = "c++";
 
 window.onload = function () {
   code_editor = ace.edit("code_editor");
+  document.getElementById("code_editor").style.fontSize=default_fontsize;
   code_editor.setTheme("ace/theme/" + default_theme);
   code_editor.session.setMode("ace/mode/" + default_language);
 };
 
-// Function to change the Code Edito Theme Selected By the User
+// Function to change the Code Editor Theme Selected By the User
 function changeTheme() {
   let theme = document.getElementById("themes").value;
 
@@ -39,6 +41,11 @@ function changeLanguage() {
   //   Funcion Call to Fetch the Compiler Version of the Corresponding Language
   getVersion();
   
+}
+
+function changeFontSize(){
+  let fontsize = document.getElementById("fontsize").value;
+  document.getElementById("code_editor").style.fontSize= fontsize;
 }
 
 // Function to Display the Output
