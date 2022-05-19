@@ -1,52 +1,64 @@
-body{
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background: #34495e;   
-    color: white;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background: #34495e;
+  color: white;
+}
+.title li {
+  display: inline;
 }
 
-.title li{
-    display: inline;
+#select {
+  margin-left: 20px;
+  font-weight: bold;
 }
 
-#select{
-    margin-left: 20px;
-    font-weight: bold;
+.name {
+  font-size: 20px;
+  font-weight: bolder;
 }
 
-.name{
-    font-size: 20px;
-    font-weight: bolder;
+.code_editor {
+  height: 450px;
 }
 
-.code_editor{
-    height: 450px;
+.input input {
+  width: 95%;
+  margin: 1px 0px 3px 0px;
 }
 
-.input input{
-    width:95%;
-    margin: 1px 0px 3px 0px;
+.input button {
+  margin: 1px 0px 3px 0px;
+  width: 70px;
+  cursor: pointer;
+  background-color: #2ecc71;
 }
 
-.input button{
-    margin: 1px 0px 3px 0px;
-    width: 70px;
-    cursor: pointer;
-    background-color: #2ecc71;
+.output {
+  margin-top: 0px;
+  height: 195px;
+  width: auto;
+  background: black;
+  color: white;
 }
 
-.output{
-    margin-top: 0px;
-    height: 195px;
-    width: auto;
-    background: black;
-    color: white;
+.output textarea {
+  margin: 0px;
+  width: 100%;
+  background-color: black;
+  color: white;
+  resize: none;
+  border: none;
 }
 
-.output textarea{
-    margin: 0px;
-    width: 100%;
-    background-color: black;
-    color: white;
-    resize: none;
-    border: none;
+/* Added Border Radius to the DropDown Buttons and run Buttons */
+select {
+  padding: 5px 0%;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+.run-btn {
+  padding: 5px;
+  border-radius: 5px;
 }
