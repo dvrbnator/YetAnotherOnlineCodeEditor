@@ -4,6 +4,13 @@ let default_theme = "monokai";
 let default_language = "c_cpp";
 let default_fontsize = "14px";
 
+let defaultC = '#include <stdio.h>\n\nint main() {\n\tprintf("Yet Another Online Code Editor");\n\treturn 0;\n}';
+let defaultCPP = '#include <iostream>\n\nusing namespace std;\n\nint main() {\n\tcout << "Yet Another Online Code Editor" << endl;\n\treturn 0;\n}';
+let defaultJAVA = 'import java.io.*;\n\nclass Main {\n\tpublic static void main (String[] args) {\n\t\tSystem.out.println("Yet Another Online Code Editor");\n\t}\n}';
+let defaultPYTHON = 'print("Yet Another Online Code Editor")';
+let defaultJS = 'console.log("Yet Another Online Code Editor");';
+let defaultRUBY = 'puts "Rubi"';
+
 // User Selected Language
 // and it's correspoding Version of the Compilor
 // For API request
@@ -14,6 +21,7 @@ let language = "c++";
 window.onload = function () {
   code_editor = ace.edit("code_editor");
   document.getElementById("code_editor").style.fontSize=default_fontsize;
+  code_editor.session.setValue(defaultC);
   code_editor.setTheme("ace/theme/" + default_theme);
   code_editor.session.setMode("ace/mode/" + default_language);
 };
@@ -32,17 +40,35 @@ function changeTheme() {
 function changeLanguage() {
   // For Editor
   language = document.getElementById("language").value;
-  code_editor.session.setMode("ace/mode/" + language);
+  if(language === "c" || language === "cpp"){code_editor.session.setMode("ace/mode/" + "c_cpp");}
+  else code_editor.session.setMode("ace/mode/" + language);
+
+  let code = code_editor.getSession().getValue();
+
+  if(language==="c" && (code === '' || code === defaultC || code === defaultCPP || code === defaultJAVA || code === defaultPYTHON || code === defaultJS || code === defaultRUBY)){
+    code_editor.session.setValue(defaultC);
+  }else if(language==="cpp" && (code === '' || code === defaultC || code === defaultCPP || code === defaultJAVA || code === defaultPYTHON || code === defaultJS || code === defaultRUBY)){
+    code_editor.session.setValue(defaultCPP);
+  }else if(language==="java" && (code === '' || code === defaultC || code === defaultCPP || code === defaultJAVA || code === defaultPYTHON || code === defaultJS || code === defaultRUBY)){
+    code_editor.session.setValue(defaultJAVA);
+  }else if(language==="python" && (code === '' || code === defaultC || code === defaultCPP || code === defaultJAVA || code === defaultPYTHON || code === defaultJS || code === defaultRUBY)){
+    code_editor.session.setValue(defaultPYTHON);
+  }else if(language==="javascript" && (code === '' || code === defaultC || code === defaultCPP || code === defaultJAVA || code === defaultPYTHON || code === defaultJS || code === defaultRUBY)){
+    code_editor.session.setValue(defaultJS);
+  }else if(language==="ruby" && (code === '' || code === defaultC || code === defaultCPP || code === defaultJAVA || code === defaultPYTHON || code === defaultJS || code === defaultRUBY)){
+    code_editor.session.setValue(defaultRUBY);
+  }
 
   // For API Details
   if (language == "c_cpp") {
     language = "c++";
   }
-  //   Funcion Call to Fetch the Compiler Version of the Corresponding Language
+  //   Function Call to Fetch the Compiler Version of the Corresponding Language
   getVersion();
   
 }
 
+//Function to change the font size
 function changeFontSize(){
   let fontsize = document.getElementById("fontsize").value;
   document.getElementById("code_editor").style.fontSize= fontsize;
