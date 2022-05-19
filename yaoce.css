@@ -4,6 +4,25 @@ body {
   background: #34495e;
   color: white;
 }
+
+a:link {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(0, 157, 255);
+  background-color: transparent;
+  text-decoration: underline;
+}
+
 .title li {
   display: inline;
 }

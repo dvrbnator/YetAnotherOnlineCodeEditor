@@ -6,8 +6,8 @@ let default_language = "c_cpp";
 // User Selected Language
 // and it's correspoding Version of the Compilor
 // For API request
-let version;
-let language;
+let version = "10.2.0";
+let language = "c++";
 // End
 
 window.onload = function () {
@@ -36,8 +36,9 @@ function changeLanguage() {
   if (language == "c_cpp") {
     language = "c++";
   }
-  //   Funcion Call to Fetch the Compilor Version of the Corresponding Language
+  //   Funcion Call to Fetch the Compiler Version of the Corresponding Language
   getVersion();
+  
 }
 
 // Function to Display the Output
@@ -45,7 +46,8 @@ function changeLanguage() {
 async function displayOutput() {
   let code = code_editor.getSession().getValue();
   let args = document.getElementById("args").value;
-
+  let args_arr = args.split(" ");
+  let stdin = document.getElementById("stdin").value;
   const url = `https://emkc.org/api/v2/piston/execute`;
   console.log(code, version);
   const data = {
@@ -56,7 +58,10 @@ async function displayOutput() {
         content: code,
       },
     ],
-    args: args,
+    //stdin takes string as input -> optional
+    stdin: stdin,
+    //args take an array as input -> optional
+    args: args_arr,
   };
   const options = {
     method: "POST",
@@ -82,9 +87,3 @@ async function getVersion() {
     }
   });
 }
-
-//Codex Repo
-//https://github.com/Jaagrav/CodeX
-
-//Codex Api
-//https://codexweb.netlify.app/.netlify/functions/enforceCode
