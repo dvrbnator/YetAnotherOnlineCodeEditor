@@ -54,15 +54,19 @@
                             <option value="22px">22px</option>
                             <option value="24px">24px</option>
                         </select></li>
+                        <li id="cmd-in">
+                            <input type="text" id="args" placeholder="cmd line arguments here">
+                        </li>
+                        <li class="run-btn">
+                            <button type="submit" onclick="displayOutput()" class="run-btn">Run</button>
+                        </li>
             </ul>
         </div>
         <div class="code_editor" id="code_editor">
             <!--Code editor-->
         </div>
         <div class="input">
-                <input type="text" id="args" placeholder="cmd line arguments here">
                 <input type="text" id="stdin" placeholder="user input here">
-                <button type="submit" onclick="displayOutput()" class="run-btn">Run</button>
         </div>
         <div class="output">
             Output<br>
