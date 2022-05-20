@@ -1,9 +1,17 @@
+/**
+ * Original Authors: Deviprakash(https://github.com/Deviprakash9908) and Jayakarthick(https://github.com/jayakarthik-jk)
+ * Code editor syntax highlighting done with:  Ace - The High Performance Code Editor for the Web.
+ * Code execution is done with: Piston - A high performance general purpose code execution engine [Public API V2].
+**/
+
 let code_editor;
 
+//Default settings
 let default_theme = "monokai";
 let default_language = "c_cpp";
 let default_fontsize = "14px";
 
+//Default codes for corresponding languages
 let defaultC = '#include <stdio.h>\n\nint main() {\n\tprintf("Yet Another Online Code Editor");\n\treturn 0;\n}';
 let defaultCPP = '#include <iostream>\n\nusing namespace std;\n\nint main() {\n\tcout << "Yet Another Online Code Editor" << endl;\n\treturn 0;\n}';
 let defaultJAVA = 'import java.io.*;\n\nclass Main {\n\tpublic static void main (String[] args) {\n\t\tSystem.out.println("Yet Another Online Code Editor");\n\t}\n}';
@@ -12,11 +20,12 @@ let defaultJS = 'console.log("Yet Another Online Code Editor");';
 let defaultRUBY = 'puts "Rubi"';
 
 // User Selected Language
-// and it's correspoding Version of the Compilor
+// and it's correspoding Version of the Compiler
 // For API request
 let version = "10.2.0";
 let language = "c++";
 // End
+
 
 window.onload = function () {
   code_editor = ace.edit("code_editor");
@@ -43,6 +52,8 @@ function changeLanguage() {
   if(language === "c" || language === "cpp"){code_editor.session.setMode("ace/mode/" + "c_cpp");}
   else code_editor.session.setMode("ace/mode/" + language);
 
+  //Start
+  //Displying Default code corresponding to the Language selected
   let code = code_editor.getSession().getValue();
 
   if(language==="c" && (code === '' || code === defaultC || code === defaultCPP || code === defaultJAVA || code === defaultPYTHON || code === defaultJS || code === defaultRUBY)){
@@ -58,6 +69,7 @@ function changeLanguage() {
   }else if(language==="ruby" && (code === '' || code === defaultC || code === defaultCPP || code === defaultJAVA || code === defaultPYTHON || code === defaultJS || code === defaultRUBY)){
     code_editor.session.setValue(defaultRUBY);
   }
+  //End 
 
   // For API Details
   if (language == "c_cpp") {
@@ -81,8 +93,11 @@ async function displayOutput() {
   let args = document.getElementById("args").value;
   let args_arr = args.split(" ");
   let stdin = document.getElementById("stdin").value;
+
   const url = `https://emkc.org/api/v2/piston/execute`;
-  console.log(code, version);
+
+  //console.log(code, version);
+
   const data = {
     language: language,
     version: version,
@@ -109,7 +124,7 @@ async function displayOutput() {
   document.getElementById("output_textarea").textContent = json.run.output;
 }
 
-// Function to get the version of the coresponding language
+// Function to get the version of the corresponding language
 // Added at 19/05/2022
 async function getVersion() {
   let response = await fetch("https://emkc.org/api/v2/piston/runtimes");
