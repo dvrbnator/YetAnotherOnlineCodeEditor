@@ -41,14 +41,6 @@ a:hover {
   height: 441px;
 }
 
-.input input {
-  width: 99%;
-  margin: 1px 0px 1px 0px;
-  border: 1px;
-  border-radius: 2px;
-  background-color: white;
-}
-
 #cmd-in{
   margin-left: 100px;
 }
@@ -69,6 +61,23 @@ a:hover {
 }
 
 .output textarea {
+  margin: 0px;
+  width: 99%;
+  background-color: black;
+  color: white;
+  resize: none;
+  border: none;
+}
+
+.input {
+  margin-top: 0px;
+  height: 190px;
+  width: auto;
+  background: black;
+  color: white;
+}
+
+.input textarea {
   margin: 0px;
   width: 99%;
   background-color: black;

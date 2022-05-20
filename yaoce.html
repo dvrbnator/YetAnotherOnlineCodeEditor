@@ -23,7 +23,7 @@
         <div>
             <ul class="title">
                 <li class="name">Yet Another Online Code Editor</li>
-                <li id="select">Select Theme
+                <li id="select">Theme
                     <select name="themes" id="themes" onchange="changeTheme()">
                         <optgroup label="Dark"></optgroup>
                             <option value="monokai">monokai</option>
@@ -36,7 +36,7 @@
                             <option value="eclipse">eclipse</option>
                         </optgroup>
                     </select></li>
-                <li id="select">Select Language
+                <li id="select">Language
                     <select name="language" id="language" onchange="changeLanguage()">
                         <option value="c">C</option>
                         <option value="cpp">C++</option>
@@ -45,7 +45,7 @@
                         <option value="javascript">JavaScript</option>
                         <option value="ruby">Ruby</option>
                     </select></li>
-                    <li id="select">Select Font Size
+                    <li id="select">Font Size
                         <select name="fontsize" id="fontsize" onchange="changeFontSize()">
                             <option value="14px">14px</option>
                             <option value="16px">16px</option>
@@ -62,16 +62,29 @@
                         </li>
             </ul>
         </div>
-        <div class="code_editor" id="code_editor">
-            <!--Code editor-->
-        </div>
-        <div class="input">
-                <input type="text" id="stdin" placeholder="user input here">
-        </div>
-        <div class="output">
-            Output<br>
-            <textarea name="output_textarea" id="output_textarea" rows="10" readonly>Output will be displayed here</textarea>
-        </div>
+        <table style="width: 100%">
+            <tr style="height: 450px;">
+                <td colspan="2">
+                    <div class="code_editor" id="code_editor">
+                        <!--Code editor-->
+                    </div>
+                </td>
+            </tr>
+            <tr style="height: 200px">
+                <td>
+                    <div class="output">
+                        Input<br>
+                        <textarea name="output_textarea" id="stdin" rows="10" placeholder="Enter user input here"></textarea>
+                    </div>
+                </td>
+                <td>
+                    <div class="output">
+                    Output<br>
+                    <textarea name="output_textarea" id="output_textarea" rows="10" readonly>Output will be displayed here</textarea>
+                    </div>
+                </td>
+            </tr>
+        </table>
         <footer align="center">
             Built With <a href="https://ace.c9.io/" target="_blank">Ace</a> ||
              Powered By <a href="https://github.com/engineer-man/piston" target="_blank">Piston</a> || 
