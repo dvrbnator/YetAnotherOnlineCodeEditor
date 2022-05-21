@@ -1,94 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Yet Another Online Code Editor</title>
-        <link rel="stylesheet" href="yaoce.css" type="text/css">
-        <script src="yaoce.js"></script>
-        <script src="ide_lib/ace.js"></script>
-        <script src="ide_lib/ext-options.js"></script>
-        <!--Bright Theme-->
-        <script src="ide_lib/theme-chrome.js"></script>
-        <script src="ide_lib/theme-crimson_editor.js"></script>
-        <script src="ide_lib/theme-eclipse.js"></script>
-        <!--Dark Theme-->
-        <script src="ide_lib/theme-monokai.js"></script>
-        <script src="ide_lib/theme-ambiance.js"></script>
-        <script src="ide_lib/theme-chaos.js"></script>
 
-    </head>
-    <body>
-        <div>
-            <ul class="title">
-                <li class="name">Yet Another Online Code Editor</li>
-                <li id="select">Theme
-                    <select name="themes" id="themes" onchange="changeTheme()">
-                        <optgroup label="Dark"></optgroup>
-                            <option value="monokai">monokai</option>
-                            <option value="ambiance">ambiance</option>
-                            <option value="chaos">chaos</option>
-                        </optgroup>
-                        <optgroup label="Bright"></optgroup>
-                            <option value="chrome">chrome</option>
-                            <option value="crimson_editor">crimson_editor</option>
-                            <option value="eclipse">eclipse</option>
-                        </optgroup>
-                    </select></li>
-                <li id="select">Language
-                    <select name="language" id="language" onchange="changeLanguage()">
-                        <option value="c">C</option>
-                        <option value="cpp">C++</option>
-                        <option value="java">Java</option>
-                        <option value="python">Python</option>
-                        <option value="javascript">JavaScript</option>
-                        <option value="ruby">Ruby</option>
-                    </select></li>
-                    <li id="select">Font Size
-                        <select name="fontsize" id="fontsize" onchange="changeFontSize()">
-                            <option value="14px">14px</option>
-                            <option value="16px">16px</option>
-                            <option value="18px">18px</option>
-                            <option value="20px">20px</option>
-                            <option value="22px">22px</option>
-                            <option value="24px">24px</option>
-                        </select></li>
-                        <li id="cmd-in">
-                            <input type="text" id="args" placeholder="cmd line arguments here">
-                        </li>
-                        <li class="run-btn">
-                            <button type="submit" onclick="displayOutput()" class="run-btn">Run</button>
-                        </li>
-            </ul>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yet Another Online Code Editor</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="yaoce.js"></script>
+    <script src="ide_lib/ace.js"></script>
+    <script src="ide_lib/ext-options.js"></script>
+    <!--Bright Theme-->
+    <script src="ide_lib/theme-chrome.js"></script>
+    <script src="ide_lib/theme-crimson_editor.js"></script>
+    <script src="ide_lib/theme-eclipse.js"></script>
+    <!--Dark Theme-->
+    <script src="ide_lib/theme-monokai.js"></script>
+    <script src="ide_lib/theme-ambiance.js"></script>
+    <script src="ide_lib/theme-chaos.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <div class="title">
+            <b>
+                <i>Yet Another Online Code Editor</i>
+            </b>
         </div>
-        <table style="width: 100%">
-            <tr style="height: 450px;">
-                <td colspan="2">
-                    <div class="code_editor" id="code_editor">
-                        <!--Code editor-->
-                    </div>
-                </td>
-            </tr>
-            <tr style="height: 200px">
-                <td>
-                    <div class="output">
-                        Input<br>
-                        <textarea name="output_textarea" id="stdin" rows="10" placeholder="Enter user input here"></textarea>
-                    </div>
-                </td>
-                <td>
-                    <div class="output">
-                    Output<br>
-                    <textarea name="output_textarea" id="output_textarea" rows="10" readonly>Output will be displayed here</textarea>
-                    </div>
-                </td>
-            </tr>
-        </table>
-        <footer align="center">
-            Built With <a href="https://ace.c9.io/" target="_blank">Ace</a> ||
-             Powered By <a href="https://github.com/engineer-man/piston" target="_blank">Piston</a> || 
-             View this project on <a href="https://github.com/Deviprakash9908/YetAnotherOnlineCodeEditor" target="_blank">Github</a>
-        </footer>
-    </body>
+        <div class="select">
+            <div id="select">
+                <span>Themes </span>
+                <select name="themes" id="themes" onchange="changeTheme()">
+                    <optgroup label="Dark"></optgroup>
+                    <option value="monokai">monokai</option>
+                    <option value="ambiance">ambiance</option>
+                    <option value="chaos">chaos</option>
+                    </optgroup>
+                    <optgroup label="Bright"></optgroup>
+                    <option value="chrome">chrome</option>
+                    <option value="crimson_editor">crimson_editor</option>
+                    <option value="eclipse">eclipse</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div id="select">
+                <span>Language</span>
+                <select name="language" id="language" onchange="changeLanguage()">
+                    <option value="c">C</option>
+                    <option value="cpp">C++</option>
+                    <option value="java">Java</option>
+                    <option value="python">Python</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="ruby">Ruby</option>
+                </select>
+            </div>
+            <div id="select">
+                <span>Size</span>
+                <select name="fontsize" id="fontsize" onchange="changeFontSize()">
+                    <option value="14px">14px</option>
+                    <option value="16px">16px</option>
+                    <option value="18px">18px</option>
+                    <option value="20px">20px</option>
+                    <option value="22px">22px</option>
+                    <option value="24px">24px</option>
+                </select>
+            </div>
+        </div>
+        <div class="run">
+            <div class="args">
+                <input type="text" id="args" placeholder="cmd line arguments here">
+            </div>
+            <div class="submit">
+                <button type="submit" onclick="displayOutput()" class="run-btn">Run</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="code_editor" id="code_editor">
+            <!--Code editor-->
+        </div>
+        <div class="io">
+            <div class="input">
+                <b>Input</b>
+                <br>
+                <textarea name="output_textarea" id="stdin" rows="10" placeholder="Enter user input here"></textarea>
+            </div>
+            <div class="output">
+                <b>Output</b>
+                <br>
+                <textarea name="output_textarea" id="output_textarea" rows="10" readonly
+                    disabled>Output will be displayed here</textarea>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <span>Built With&nbsp;</span>
+        <a href="https://ace.c9.io/" target="_blank">Ace</a>
+        <span>&nbsp;||&nbsp;Powered By&nbsp;</span>
+        <a href="https://github.com/engineer-man/piston" target="_blank">Piston</a>
+        <span>&nbsp;||&nbsp;View this project on&nbsp;</span>
+        <a href="https://github.com/Deviprakash9908/YetAnotherOnlineCodeEditor" target="_blank">Github</a>
+    </footer>
+</body>
+
 </html>
