@@ -27,7 +27,6 @@ let language = "c++";
 
 //loading Animation
 let load = document.getElementById("load");
-console.log(load);
 
 
 window.onload = function () {
@@ -130,14 +129,17 @@ async function displayOutput() {
         load.style.display = "none";
       } catch (error) {
         load.style.display = "none";
-        alert("Output Not Found Try again Later...");
+        console.log("Output Not Found Try again Later...");
+        alert("Something Went Wrong Try Again Later...");
       }
     } catch (error) {
       load.style.display = "none";
       console.log("Error Converting response into json");
+      alert("Something Went Wrong Try Again Later...");
     }
   } catch (error) {
     load.style.display = "none";
+    console.log("Error Getting Response from server");
     alert("Something Went Wrong Try Again Later...");
   }
 }
