@@ -7,18 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yet Another Online Code Editor</title>
     <link rel="stylesheet" href="./yaoce.css" type="text/css">
-    <script src="./yaoce.js"></script>
-    <script src="./ide_lib/ace.js"></script>
-    <script src="./ide_lib/ext-options.js"></script>
-    <!--Bright Theme-->
-    <script src="./ide_lib/theme-chrome.js"></script>
-    <script src="./ide_lib/theme-crimson_editor.js"></script>
-    <script src="./ide_lib/theme-eclipse.js"></script>
-    <!--Dark Theme-->
-    <script src="./ide_lib/theme-monokai.js"></script>
-    <script src="./ide_lib/theme-ambiance.js"></script>
-    <script src="./ide_lib/theme-chaos.js"></script>
-
 </head>
 
 <body>
@@ -76,8 +64,19 @@
             </div>
         </div>
     </header>
-
-    <div class="container">
+    <section class="center" id="load">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </section>
+    <section class="container">
         <div class="code_editor" id="code_editor">
             <!--Code editor-->
         </div>
@@ -94,7 +93,7 @@
                     disabled>Output will be displayed here</textarea>
             </div>
         </div>
-    </div>
+    </section>
     <footer>
         <div>
             <span>Built With&nbsp;</span>
@@ -110,6 +109,21 @@
 
         </div>
     </footer>
+
+    <!-- Script Section -->
+    <section>
+        <script src="./yaoce.js"></script>
+        <script src="./ide_lib/ace.js"></script>
+        <script src="./ide_lib/ext-options.js"></script>
+        <!--Bright Theme-->
+        <script src="./ide_lib/theme-chrome.js"></script>
+        <script src="./ide_lib/theme-crimson_editor.js"></script>
+        <script src="./ide_lib/theme-eclipse.js"></script>
+        <!--Dark Theme-->
+        <script src="./ide_lib/theme-monokai.js"></script>
+        <script src="./ide_lib/theme-ambiance.js"></script>
+        <script src="./ide_lib/theme-chaos.js"></script>
+    </section>
 </body>
 
 </html>
