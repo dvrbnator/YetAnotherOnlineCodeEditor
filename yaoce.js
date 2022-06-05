@@ -12,12 +12,13 @@ let default_language = "c_cpp";
 let default_fontsize = "14px";
 
 //Default codes for corresponding languages
-let defaultC = '#include <stdio.h>\n\nint main() {\n\tprintf("Yet Another Online Code Editor");\n\treturn 0;\n}';
-let defaultCPP = '#include <iostream>\n\nusing namespace std;\n\nint main() {\n\tcout << "Yet Another Online Code Editor" << endl;\n\treturn 0;\n}';
+let defaultC = '#include <stdio.h>\n\nint main() {\n\tint a, b;\n\tscanf("%d %d", &a, &b);\n\tprintf("%d ",(a+b));\n\tprintf("Yet Another Online Code Editor");\n\treturn 0;\n}';
+let defaultCPP = '#include <iostream>\n\nusing namespace std;\n\nint main() {\n\tint a, b;\n\tcin >> a >> b;\n\tcout << (a+b);\n\tcout << " Yet Another Online Code Editor" << endl;\n\treturn 0;\n}';
 let defaultJAVA = 'import java.io.*;\n\nclass Main {\n\tpublic static void main (String[] args) {\n\t\tSystem.out.println("Yet Another Online Code Editor");\n\t}\n}';
 let defaultPYTHON = 'print("Yet Another Online Code Editor")';
 let defaultJS = 'console.log("Yet Another Online Code Editor");';
 let defaultRUBY = 'puts "Rubi"';
+let defaultInput = '5 5';
 
 // User Selected Language
 // and it's correspoding Version of the Compiler
@@ -61,16 +62,22 @@ function changeLanguage() {
 
   if (language === "c" && (code === '' || code === defaultC || code === defaultCPP || code === defaultJAVA || code === defaultPYTHON || code === defaultJS || code === defaultRUBY)) {
     code_editor.session.setValue(defaultC);
+    document.getElementById("stdin").textContent = defaultInput;
   } else if (language === "cpp" && (code === '' || code === defaultC || code === defaultCPP || code === defaultJAVA || code === defaultPYTHON || code === defaultJS || code === defaultRUBY)) {
     code_editor.session.setValue(defaultCPP);
+    document.getElementById("stdin").textContent = defaultInput;
   } else if (language === "java" && (code === '' || code === defaultC || code === defaultCPP || code === defaultJAVA || code === defaultPYTHON || code === defaultJS || code === defaultRUBY)) {
     code_editor.session.setValue(defaultJAVA);
+    document.getElementById("stdin").textContent = "";
   } else if (language === "python" && (code === '' || code === defaultC || code === defaultCPP || code === defaultJAVA || code === defaultPYTHON || code === defaultJS || code === defaultRUBY)) {
     code_editor.session.setValue(defaultPYTHON);
+    document.getElementById("stdin").textContent = "";
   } else if (language === "javascript" && (code === '' || code === defaultC || code === defaultCPP || code === defaultJAVA || code === defaultPYTHON || code === defaultJS || code === defaultRUBY)) {
     code_editor.session.setValue(defaultJS);
+    document.getElementById("stdin").textContent = "";
   } else if (language === "ruby" && (code === '' || code === defaultC || code === defaultCPP || code === defaultJAVA || code === defaultPYTHON || code === defaultJS || code === defaultRUBY)) {
     code_editor.session.setValue(defaultRUBY);
+    document.getElementById("stdin").textContent = "";
   }
   //End 
 
@@ -88,6 +95,9 @@ function changeFontSize() {
   let fontsize = document.getElementById("fontsize").value;
   document.getElementById("code_editor").style.fontSize = fontsize;
 }
+
+//Setting default input
+document.getElementById("stdin").textContent = defaultInput;
 
 // Function to Display the Output
 // Added at 19/05/2022
